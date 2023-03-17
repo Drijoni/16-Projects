@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Quizz App</title>
+</head>
+<body>
+    
+<div class="main-container">
+    <div class="questions-container">
+        
+            <!-- Starting screen-->
+        
+            <h1 id="startTitle">Programming Languages Quizz</h1>
+            <h3 id="anotherTitle">Click  Start to get started</h3>
+            <button id="startBtn" onclick="StartQuizz()">Start</button>
+  
+        
+        <h2 id="question"></h2>
+        
+        <div class="answers-container">
+        <button class="ansbtn" id="ans1" value="" onclick="next(value)">Answer 1</button>
+        <button class="ansbtn" id="ans2" value="" onclick="next(value)">Answer 2</button>
+        <button class="ansbtn" id="ans3" value="" onclick="next(value)" >Answer 3</button>
+        <button class="ansbtn" id="ans4" value="" onclick="next(value)">Answer 4</button>
+        </div>
+        
+            <!-- Ending Screen-->
+    
+            <h1 id="endingTitle"></h1>
+            <h1 id="anotherEndingTitle"></h1>    
+            <button id="startAgain" onclick="backToHome()">Go Back</button>
+
+
+    </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

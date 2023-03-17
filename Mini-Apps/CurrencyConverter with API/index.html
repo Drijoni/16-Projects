@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Currency Converter</title>
+</head>
+<body>
+	
+<!--1-->
+<div class="main-container">
+	<h1 class="main-title">Currency Converter</h1>	
+	<!--2-->
+	<div class="second-container">
+		<!--cr1-->
+		<div class="currency1">
+			<p class="ptext">Amount I want to convert:</p>
+			<input type="number"  id="input1" value="" oninput="limit()" placeholder="Write a value">
+			<select>
+				<option value="currency">Currency</option>
+			</select>
+		</div>
+		<!--cr1-->
+		<span>=</span>
+		<!--cr2-->
+		<div class="currency2">
+			<p class="ptext">Result:</p>	
+			<input type="number" disabled="" id="input2" value="">
+
+			<select>
+				<option value="currency">Currency</option>
+			</select>
+			<!--cr2-->
+		</div>
+	</div>
+	<p id="date"></p>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

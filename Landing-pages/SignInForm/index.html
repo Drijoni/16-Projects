@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Sign In / Up Form</title>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="first-container">
+        <h3 class="first-container-title">Plan your activities and control your progress online</h3>
+        <img src="css/svg.svg" alt="">
+    </div>
+    
+    <div class="second-container">
+        <h2>
+            <span id="SignIn-span" class="SignIn-span">Sign In</span>
+            <span class="or-span">&nbsp or</span>
+            <span id="SignUp-span" class="SignUp-span">Sign Up</span>
+        </h2>
+        
+        <div class="SignIn-form" id="SignIn-form">
+            <label class="label-SignIn">Email</label>
+            <input type="text" id="FullName" placeholder="Enter your e-mail">
+            <label class="label-SignIn">Password</label>
+            <input type="password" class="Password" placeholder="**********">
+            
+            <div class="ButtonContainer">
+                <button class="SignIn-btn">Sign In</button>
+                <p id="dont-have-account">Don't have an acount?</p>
+            </div>
+    
+
+        </div>
+
+        <div class="SignUp-form" id="SignUp-form">
+            <label class="label-SignUp">Full Name</label>
+            <input type="text" placeholder="Enter your full name">
+            <label class="label-SignUp">E-mail</label>
+            <input type="email" placeholder="Your e-mail goes here">
+            <label class="label-SignUp">Password</label>
+            <input type="password" class="Password" placeholder="**********">            
+            <span><input type="checkbox" required><span class="agree">I agree all statements in <span class="terms-services">term of service</span></span></span>
+            <div class="ButtonContainer">
+                <button  class="SignUp-btn">Sign Up</button>
+                <p id="alreadyAmember">I'm already a member</p>
+            </div>
+            
+
+        </div>
+    </div>    
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

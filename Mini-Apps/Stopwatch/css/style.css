@@ -1,0 +1,72 @@
+body {
+	background-color: black;
+	display: grid;
+	justify-content: center;
+}
+
+.main-container {
+	padding: 25px;
+	border: 1px solid white;
+	box-shadow: 0px 0px 10px white;
+	height: 200px;
+	margin-top: 70%;
+	width: 300px;
+	height: 60%;
+}
+
+.time-container {
+	border: 10px solid white;
+	border-radius: 20%;
+	text-align: center;
+	margin-top: auto;
+	width: 270px;
+}
+
+@keyframes coloranimation {
+	0% {
+		box-shadow: 0px 0px 25px white;
+	}
+
+	100% {
+		box-shadow: 0px 0px 50px red;
+	}
+}
+
+
+#num-cont {
+	font-family: sans-serif;
+	padding: 50px;
+	color: white;
+	font-size: 30px;
+}
+
+.buttons {
+	cursor: pointer;
+	height: 40px;
+	width: auto;
+	border: 2px solid;
+	background-color: silver;
+	border-radius: 10%;
+	font-size: 27px;
+	margin-left: 5px;
+	margin: 10px;
+	outline: 0;
+	font-family: sans-serif;
+}
+
+#play, #reset, #stop {
+	color: white;
+}
+
+.buttons:hover {
+	transition: .3s;
+	background-color: black;
+}
+
+
+.btn-container {
+	margin-top: 35px;
+	display: grid;
+	width: 290px;
+	text-align: center;
+}

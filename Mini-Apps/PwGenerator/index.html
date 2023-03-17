@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Password Generator</title>
+</head>
+<body>
+
+<div class="main-container"> 
+    <h1 class="title">Password Generator</h1>
+    <h4 class="subtitle">Secure your account with a strong password</h4>
+    
+  <div class="second-container input-group mb-3">
+            <input type="text" id="input" value="" onclick="copy()">
+            <div class="input-group-append">
+              <button class="btn" id="generate" type="button" onclick="generate()">Generate</button>
+            </div>
+  </div>
+  
+  <div class="range-container">
+    <input type="range" id="range" value="" min="6" max="20" onchange="howManyy(this.value)"> 
+    <span><p id="parag">Select the length of your password (Default 13)</p></span>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+*{
+	font-family: 'Poppins', sans-serif;
+}
+.main-contanier{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+	flex-direction: column;
+}
+
+#draw{
+	border:1px solid rebeccapurple;
+	cursor: crosshair;
+}
+
+
+.toolbox{
+	background-color:rebeccapurple;
+	padding:25px;
+	}
+
+.toolbox > * {
+	font-size: 19px;
+	text-align: center;
+	
+}
+
+button{
+	width: 45px;
+	height: 50px;
+}
+
+#widthInput{
+	height: 43px;
+	width: 30px;
+	outline: none;
+	background-color: white;
+	outline: none;
+
+}
+
+#clearbtn{
+	width: 90px;
+}
+
+
+#clearbtn{
+	float: right;
+}
+
+input[type="color"]{
+	margin-left: 10px;
+	padding:12px;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+
+       
+    

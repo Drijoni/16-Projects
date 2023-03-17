@@ -1,0 +1,121 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+	background-color: rgba(0, 0, 0, 0.952);
+	
+}
+
+.main-container{
+	text-align: center;
+}
+
+.main-title{
+	margin:40px;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: white;
+}
+
+.second-container{
+	border:1px solid rgb(209, 199, 199);
+	background-color: #e7e7e7;
+	padding: 100px;
+	text-align: center;
+	box-shadow:0px 0px 3px white;
+	border-radius: 5px;
+}
+
+
+input,select{
+	width: 250px;
+	height: 30px;
+	border:1px solid  #ccc ;	
+	background-color: #fff;
+	outline: none;
+	font-size: 25px;
+	
+}
+
+input[type='number']{
+	color: #ff9000;
+	text-align: left;
+	padding-left: 8px;
+}
+
+input[type='number']:focus{
+	border:1px solid yellow;
+
+}
+
+select{
+	width: 80px;
+	letter-spacing: 3px;
+	
+}
+
+option{
+	text-align: center;
+}
+
+span{
+	color: red;
+	font-size: 50px;
+	font-weight: 700;
+	justify-self: center;
+}
+
+
+
+.ptext{
+	color:rgb(114, 0, 0);
+	font-family:sans-serif;
+	font-weight: 600;
+	text-align: left;
+	margin-left: 7%;
+}
+
+#date{
+	color: white;
+	text-align: left;
+	margin:20px;
+}
+
+@media (max-width: 480px){
+
+	input{
+		width: 200px;
+		
+
+	}
+	select{
+		width: 70px;
+		font-size:20px;
+		letter-spacing: 1px;
+	}
+
+	.second-container{
+		padding: 50px;
+	}
+
+}
+
+/*Remove the counter on input*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

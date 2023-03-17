@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Temperature Converter</title>
+</head>
+<body>
+
+
+<div class="container">
+	<h2 class="title">☀ Temperature converter ❆</h2>   
+	<label>Kelvin (K)</label>
+	<input type="number" id="kelvin" class="temperature" value="0" oninput="kelvinCalc(parseFloat(value));">
+
+	<label>Celsius (℃)</label>
+	<input type="number" class="temperature" id="celsius" value="-273.15" oninput="celsCalc(parseFloat(value));">
+
+	<label>Fahrenhait (℉)</label>
+	<input type="number" id="fahr" class="temperature" value="-459.67" oninput="fahrCalc(parseFloat(value));">
+</div>
+
+<p class="copy">&copy D.H</p>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

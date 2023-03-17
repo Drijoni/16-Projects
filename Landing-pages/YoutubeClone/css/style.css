@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+}
+
+.wrapper{
+    display: flex;
+}
+
+.main-container{
+    width: 85%;
+    float: right;
+}
+
+
+/*  Header */
+.header{
+    display: flex;
+    padding:10px;
+}
+
+.yt-logo{
+    height: 80px;
+    margin:20px 60px;
+}
+
+.yt-logo2{
+    display: none;
+}
+
+.search-bar{
+    display: flex;
+    width: 600px;
+    margin-left: 20%;
+    padding: 5px;
+}
+
+.search-input{
+    font-size: inherit;
+    width: 100%;
+    padding:6px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none;
+    border:1px solid #d1c7c7;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    border: 1px solid #d1c7c7;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+    border-top-right-radius:3px;
+    border-bottom-right-radius:3px;
+}
+
+.menu-icons{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    align-items: center;
+    gap:30px;
+    margin-left: auto;
+}
+
+.channel-svg {
+    width: 25px;
+    height: 25px;
+}
+
+.channel-icon{
+    width: 35px;
+    height: 35px;
+    border-radius:50%;
+}
+
+/* Sidebar */
+.sidebar{
+    width: 15%;
+}
+
+.sidebar-menu{
+    font-size: 18px;
+    margin:0px;
+    padding:0px;
+}
+
+.sidebar-menu-item{
+    font-size: 15px;
+    padding:15px 20px;
+    list-style: none;
+    cursor: pointer;
+}
+
+.secondary-sidebar-items{
+    padding: 20px 0px;
+    border-top:1px solid #c9c9c9;
+    border-bottom:1px solid #c9c9c9;
+}
+
+.sidebar-menu-item:hover{
+    background-color: rgb(243, 242, 242);
+}
+
+i{   
+    font-size:18px;
+    padding-right: 20px;
+    color: rgb(75, 68, 68);
+}
+
+.iactive i {
+color:red;
+}
+
+.iactive{
+    font-weight: 600;
+    background-color: rgb(236, 233, 233);
+}
+
+/*  Videos */
+.videos{
+    background-color: #f9f9f9;
+}
+
+.video-section{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill,minmax(250px,310px));
+    gap:48px 30px;
+    padding:3rem 0;
+    margin:0 22px;
+}
+
+.video-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail{
+    position: relative;
+    display: flex;
+}
+
+.thumbnail::before{
+    content: attr(video-length);
+    position: absolute; 
+    color:white;
+    right:5px;
+    bottom:5px;
+    background-color:rgb(0,0,0,0.8);
+    padding:1px 3px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.thumbnail-image{
+    width: 100%;
+    height: 100%;
+    min-width: 250px;
+    min-height: 150px;
+}
+
+.video-bottom-section{
+    margin-top:10px;
+    display: flex;
+}
+
+.channel-image{
+    border-radius: 75px;
+    margin-right: 8px;
+}
+
+.video-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.video-title{
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom:4px;
+    text-decoration: none;
+    color:black;
+}
+
+.channel-name,.video-data{
+    color:#555;
+    text-decoration: none;
+    margin-top:3px;
+    font-size: 15px;
+}
+
+.channel-name:hover{
+    transition: .5s;
+    color:#111;
+}
+
+/*  Categories */
+.categories{
+    padding: 10px 20px;
+    border-top:1px solid #d4d4d4;
+    border-bottom:1px solid #d4d4d4;
+}
+
+.categories-section {
+    display: flex;
+    overflow: hidden;
+}
+
+.category{
+    font-size: 15px;
+    margin-right: 16px;
+    border:1px solid #ccc;
+    white-space: nowrap;
+    border-radius: 20px;
+    padding:7px 14px;
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+
+.category:hover {
+    background-color: #DDD;
+}
+
+.active {
+    background-color: #606060;
+    border-color: #eeeeee;
+    color:white;
+}
+
+@media(max-width:1300px) {
+    .sidebar-item-title{
+     display: none;   
+    }
+    i{
+     font-size: 26px;
+    }
+    .sidebar{
+        text-align: center;
+    }
+    .yt-logo{
+       padding:0;
+       margin:auto;
+    }
+}
+
+@media(max-width:800px){
+    .sidebar-item-title{
+        display: none;   
+       }
+       i{
+        font-size: 20px;
+       }
+       .sidebar{
+           text-align: center;
+       }
+       .search-bar{
+           width:300px;
+           margin-left: auto;
+       }
+       .search-input{
+           padding:1px 20px;
+       }
+       .search-btn{
+           padding:1px 10px;
+       }
+       .yt-logo{
+           margin:0px;
+           padding:5px 3px;
+       }
+       .menu-icons{
+           gap:20px;
+       }
+       .channel-svg{
+           width: 20px;
+           height: 20px;
+           padding:0;
+       }
+        .yt-logo{
+            display: none;
+        }
+        .yt-logo2{
+            display: block;
+            width: 40px;
+            margin:auto;
+            padding: 20px 0px;   
+        }
+}
+
+@media(max-width:500px){
+    .menu-icons{
+        gap:13px;
+    }
+    .channel-svg{
+        width: 20px;
+        height: 20px;
+        padding:0;
+    }
+    .channel-icon{
+        width: 30px;
+        height: 30px;
+    }
+    .search-bar{
+        width: 220px;
+    }
+
+    .search-input{
+        padding:1px;
+        font-size: 14px;
+    }
+    .search-btn{
+        padding:0px
+    }
+}

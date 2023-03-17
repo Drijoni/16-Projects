@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Text To Speech</title>
+</head>
+<body>
+
+<div class="entire">   
+    <div id="main">
+            <div class="language-container">
+                <p>Select a Language</p>
+
+                <select id="languages">
+                        <option value="de-DE">German</option>
+                        <option value="en-US">US English</option>
+                        <option value="en-GB">UK English</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="hi-IN">Hindi</option>
+                        <option value="it-IT">Italian</option>
+                        <option value="ja-JP">Japanese</option>
+                        <option value="ru-RU">Russian</option>
+                </select>
+
+            </div>
+  
+            <div class="input-container">
+                <p>Write your message</p>
+                <textarea name="" id="text"  rows="5" maxlength="150"></textarea>
+            </div>
+
+    
+            <div class="btn-container"> 
+                <button id="btnSpeak" onclick="textToSpeech()">Speak</button>
+            </div>
+    </div>  
+    <p class="copyright">&copy D.H</p>
+    <p id="info">Isn't working?</p>
+
+</div> <!-- Entire-->
+
+<script src="js/script.js"></script>
+<script src="js/three.min.js"></script>
+<script src="js/vanta.fog.min.js"></script>
+<script>
+
+/* Background */
+
+VANTA.FOG({
+    el: "body",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 100.00,
+    minWidth: 100.00,
+    scale: 1.00,
+    scaleMobile: 1.00
+  })
+
+
+</script>
+</body>
+</html>
