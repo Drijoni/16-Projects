@@ -13,12 +13,12 @@ Have fun
 	&nbsp;&nbsp;- Text To Speech<br>
 	&nbsp;&nbsp;- To Do List<br>
 
-• Landing-pages
+• Landing-pages<br>
 	&nbsp;&nbsp;- Discord Login Clone<br>
 	&nbsp;&nbsp;- Sign In Form<br>
 	&nbsp;&nbsp;- Youtube Clone<br>
 
-• Mini-Apps
+• Mini-Apps<br>
 	&nbsp;&nbsp;- Calculator<br>
 	&nbsp;&nbsp;- Countdown<br>
 	&nbsp;&nbsp;- Currency Converter (with API)<br>
