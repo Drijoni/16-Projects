@@ -1,122 +1,123 @@
- *{
-    font-family: "Rimouski";   
-}
+ * {
+     font-family: "Rimouski";
+ }
 
-body{
-    background-color: #293251;
-    text-align: center;
-}
+ body {
+     background-color: #293251;
+     text-align: center;
+ }
 
-.main-container{
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+ .main-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding-top: 50px;
+ }
 
-.search-container{
-    text-align: left;
-    margin-bottom:20px;
-}
+ .search-container {
+     text-align: left;
+     margin-bottom: 20px;
+ }
 
-#input{
-    padding:5px;
-    width: 270px;
-    height: 30px;
-    font-size: 20px;
-    outline: none;
-}
+ #input {
+     padding: 5px;
+     width: 270px;
+     height: 30px;
+     font-size: 20px;
+     outline: none;
+ }
 
-#find{
-    height: 30px;
-    font-size:20px;
-    background-color:rgb(206, 206, 7);
-    color: white;
-    outline: none;
-    border:none;
-    cursor: pointer;
-}
+ #find {
+     height: 30px;
+     font-size: 20px;
+     background-color: rgb(206, 206, 7);
+     color: white;
+     outline: none;
+     border: none;
+     cursor: pointer;
+ }
 
-#find:hover{
-    transition: .5s;
-    background-color: rgb(255, 230, 0);    
-}
+ #find:hover {
+     transition: .5s;
+     background-color: rgb(255, 230, 0);
+ }
 
-.result-container{
-    background-color: white;
-    width: 320px;
-    padding-bottom : 50px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0px 0px 10px black;
-}
+ .result-container {
+     background-color: white;
+     width: 320px;
+     padding-bottom: 50px;
+     border-radius: 15px;
+     text-align: center;
+     box-shadow: 0px 0px 10px black;
+ }
 
-.weather-container{
-    background-color:  #e8edf3;
-    padding: 10px;
-}
+ .weather-container {
+     background-color: #e8edf3;
+     padding: 10px;
+ }
 
-.tempAndWind{ 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+ .tempAndWind {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
 
-.minMaxDiv{
-    text-align: left;   
-}
+ .minMaxDiv {
+     text-align: left;
+ }
 
-.title{
-    font-size: 25px;
-    font-weight:600;
-    padding-top: 15px;  
-}
+ .title {
+     font-size: 25px;
+     font-weight: 600;
+     padding-top: 15px;
+ }
 
-.icon{
-    width: 150px;
-    height: 150px;
-}
+ .icon {
+     width: 150px;
+     height: 150px;
+ }
 
-#windIcon {
-    width: 60px;
-    height: 60px;
-}
+ #windIcon {
+     width: 60px;
+     height: 60px;
+ }
 
-.temperature{
-    margin:0;
-    font-size: 60px;
-    font-weight: 700;
-    cursor: pointer;
-}
+ .temperature {
+     margin: 0;
+     font-size: 60px;
+     font-weight: 700;
+     cursor: pointer;
+ }
 
-.temperature-description{
-    font-size: 16px;
-}
+ .temperature-description {
+     font-size: 16px;
+ }
 
-.location{
-    font-size:20px;
-}
+ .location {
+     font-size: 20px;
+ }
 
-#tip{
-    cursor: pointer;
-    visibility: hidden;
-    color:grey;
-}
+ #tip {
+     cursor: pointer;
+     visibility: hidden;
+     color: grey;
+ }
 
-.notification{
-    display: none;
-    padding:10px;
-    color: white;
-    background-color: red;
-}
+ .notification {
+     display: none;
+     padding: 10px;
+     color: white;
+     background-color: red;
+ }
 
-.tipAndCopy{
-    margin-top:60px;
-}
+ .tipAndCopy {
+     margin-top: 60px;
+ }
 
 
-@media(max-width:620px){
-    #input{
-        width: 240px;
-    }
-}
+ @media(max-width:620px) {
+     #input {
+         width: 240px;
+     }
+ }

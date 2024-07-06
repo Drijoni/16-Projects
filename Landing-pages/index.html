@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16-Projects</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+      body {
+        background-color: gray;
+        color: white;
+        font-family: "Poppins";
+        text-align: center;
+        padding: 50px;
+      }
+
+      body img {
+        height: 150px;
+      }
+
+      a {
+        text-decoration: none;
+        transition: 0.4s;
+      }
+
+      a:hover {
+        opacity: 0.6;
+        transform: scale(0.9);
+      }
+
+      .categories-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 140px;
+      }
+
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 4px;
+        background-color: #fff;
+      }
+      .card-container p {
+        text-decoration: none;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Landing Pages</h2>
+
+    <div class="categories-container">
+      <a class="card-container" href="DiscordLogin/">
+        <p>Discord Login</p>
+      </a>
+
+      <a class="card-container" href="SignInForm/">
+        <p>Sign In Form</p>
+      </a>
+
+      <a class="card-container" href="YoutubeClone/">
+        <p>Youtube Clone</p>
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>16-Projects</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+      body {
+        background-color: gray;
+        color: white;
+        font-family: "Poppins";
+        text-align: center;
+        padding: 50px;
+      }
+
+      body img {
+        height: 150px;
+      }
+
+      a {
+        text-decoration: none;
+        transition: .4s;
+    }
+
+      a:hover {
+        opacity: .6;
+        transform: scale(0.9);
+      }
+
+      .categories-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap:40px;
+        margin-top: 140px;
+      }
+
+      .card-container {
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        text-align: center;
+        width: 200px;
+      }
+      .card-container p {
+        text-decoration: none;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #000;
+        font-weight: bold;
+        border-bottom:2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>
+      I recommend this to beginners who are getting started to learn web
+      development. Developing these projects will teach you the basics of web
+      development when it comes to layout, organizing code and design.
+      For source code check <a style="color:orange" href="https://github.com/drijoni/16-Projects">github repo</a> Enjoy.
+    </h2>
+    <h3>HTML-CSS-JavaScript only.</h3>
+    <h5>Click a category to see the projects.</h5>
+    <div class="categories-container">
+      <a class="card-container" href="/Fun/">
+        <img src="fun.png" alt="" />
+        <p>Fun</p></a
+      >
+
+      <a class="card-container" href="/Landing-pages/">
+        <img src="pages.png" alt="" style="filter: grayscale(100)" />
+        <p>Landing Pages</p>
+      </a>
+
+      <a class="card-container" href="/Mini-Apps/">
+        <img src="apps.png" alt="" style="filter: grayscale(100)" />
+        <p style="margin-left: 40px;">Mini-Apps</p>
+      </a>
+    </div>
+  </body>
+</html>
