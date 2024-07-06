@@ -12,17 +12,17 @@ Live website: https://16-projects.netlify.app/
 	- Text To Speech
 	- To Do List
 
-• Landing-pages
-	- Discord Login Clone
-	- Sign In Form
-	- Youtube Clone
+• Landing-pages<br>
+	&nbsp;&nbsp;- Discord Login Clone<br>
+	&nbsp;&nbsp;- Sign In Form<br>
+	&nbsp;&nbsp;- Youtube Clone<br>
 
-• Mini-Apps
-	- Calculator
-	- Countdown
-	- Currency Converter (with API)
-	- Password Generator
- 	- Stopwatch
-	- Weather app (with API)
-	- Temperature Converter
+• Mini-Apps<br>
+	&nbsp;&nbsp;- Calculator<br>
+	&nbsp;&nbsp;- Countdown<br>
+	&nbsp;&nbsp;- Currency Converter (with API)<br>
+	&nbsp;&nbsp;- Password Generator<br>
+ 	&nbsp;&nbsp;- Stopwatch<br>
+	&nbsp;&nbsp;- Weather app (with API)<br>
+	&nbsp;&nbsp;- Temperature Converter<br>
 	
