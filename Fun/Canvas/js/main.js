@@ -38,13 +38,22 @@ let Drawing = false;    // identifies if we are drawing or no
 let lastX = 0;
 let lastY = 0;
 
-/// Convert mouse/pointer position to canvas coordinates
+/// Get client position from mouse or touch event
+function getClientPos(e) {
+    if (e.touches && e.touches.length > 0) {
+        return { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+    }
+    return { clientX: e.clientX, clientY: e.clientY };
+}
+
+/// Convert mouse/touch position to canvas coordinates
 function getCanvasCoords(e) {
+    const pos = getClientPos(e);
     const rect = canvas.getBoundingClientRect();
     const scaleX = canvas.width / rect.width;
     const scaleY = canvas.height / rect.height;
-    const x = (e.clientX - rect.left) * scaleX;
-    const y = (e.clientY - rect.top) * scaleY;
+    const x = (pos.clientX - rect.left) * scaleX;
+    const y = (pos.clientY - rect.top) * scaleY;
     return { x, y };
 }
 
@@ -53,7 +62,6 @@ function color(col) {
     ctx.strokeStyle = col;
 }
 
-// function that accepts an event
 function draw(e) {
     if (!Drawing) return;
 
@@ -66,18 +74,32 @@ function draw(e) {
     lastY = y;
 }
 
-canvas.addEventListener('mousedown', (e) => {
+function startDraw(e) {
+    e.preventDefault();
     Drawing = true;
     const { x, y } = getCanvasCoords(e);
     lastX = x;
     lastY = y;
-});
+}
 
-canvas.addEventListener('mousemove',draw);
+function endDraw() {
+    Drawing = false;
+}
 
+// Mouse
+canvas.addEventListener('mousedown', startDraw);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseup', endDraw);
+canvas.addEventListener('mouseout', endDraw);
 
-canvas.addEventListener('mouseup',()=>{Drawing=false});
-canvas.addEventListener('mouseout',()=>{Drawing=false});
+// Touch (mobile)
+canvas.addEventListener('touchstart', startDraw, { passive: false });
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    draw(e);
+}, { passive: false });
+canvas.addEventListener('touchend', endDraw);
+canvas.addEventListener('touchcancel', endDraw);
 
 /// Clear everything
 function clearAll() {
