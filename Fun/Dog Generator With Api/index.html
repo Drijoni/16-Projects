@@ -1,24 +1,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap" rel="stylesheet">
     <title>Random Dog Generator</title>
 </head>
 <body>
 
-<video muted autoplay loop id="video">
-  <source src="vid/video.mp4" type="video/mp4" >
-</video>
-
 <div class="main-container">
-    <h1>Generate a random Dog</h1>
+    <h1>See a random dog! 🐕</h1>
     <div class="item-container">
-        <img src="" id="image" width="400px">
-        <br>
-        <br>
-        <button id="generate" onclick="dog();">Not cute enough?</button> 
+        <div class="image-wrap">
+            <img src="" alt="A cute dog" id="image" width="320" height="320">
+            <div class="loading" id="loading">Loading...</div>
+        </div>
+        <button type="button" id="generate">Another dog!</button>
     </div>
 </div>
 

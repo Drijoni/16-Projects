@@ -3,99 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16-Projects</title>
-
+    <title>Mini-Apps · 16-Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      :root {
+        --bg: #0c0f17;
+        --bg-card: rgba(255, 255, 255, 0.03);
+        --bg-card-hover: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.08);
+        --border-hover: rgba(16, 185, 129, 0.4);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --accent: #10b981;
+        --accent-soft: rgba(16, 185, 129, 0.15);
+        --radius: 16px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
 
       body {
-        background-color: gray;
-        color: white;
-        font-family: "Poppins";
-        text-align: center;
-        padding: 50px;
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.12), transparent);
+        color: var(--text);
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 2rem 1.5rem 4rem;
       }
 
-      body img {
-        height: 150px;
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
       }
 
-      a {
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
         text-decoration: none;
-        transition: 0.4s;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+        transition: color 0.2s ease;
       }
 
-      a:hover {
-        opacity: 0.6;
-        transform: scale(0.9);
+      .back:hover {
+        color: var(--accent);
       }
 
-      .categories-container {
+      .back::before {
+        content: "←";
+        font-weight: 600;
+      }
+
+      .page-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        margin: 0 0 2.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 40px;
-        margin-top: 140px;
+        justify-content: center;
+        min-height: 88px;
+        padding: 1.25rem 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 1rem;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+        box-shadow: var(--shadow);
       }
 
-      .card-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 200px;
-        padding: 20px;
-        border: 2px solid black;
-        border-radius: 4px;
-        background-color: #fff;
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--border-hover);
+        background: var(--bg-card-hover);
+        color: var(--accent);
       }
-      .card-container p {
-        text-decoration: none;
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #000;
-        font-weight: bold;
-        border-bottom: 2px solid black;
+
+      .card:active {
+        transform: translateY(-2px);
       }
     </style>
   </head>
   <body>
-    <h2>Mini Apps</h2>
+    <div class="container">
+      <a class="back" href="../index.html">All projects</a>
+      <h1 class="page-title">Mini-Apps</h1>
 
-    <div class="categories-container">
-      <a class="card-container" href="Calculator/">
-        <p>Calculator</p>
-      </a>
-
-      <a class="card-container" href="Countdown/">
-        <p>Countdown</p>
-      </a>
-
-      <a class="card-container" href="CurrencyConverter with API/index.html">
-        <p>Currency Converter</p>
-      </a>
-
-      
-      <a class="card-container" href="PwGenerator/">
-        <p>Password Generator</p>
-      </a>
-
-      
-      <a class="card-container" href="Stopwatch/">
-        <p>Stopwatch</p>
-      </a>
-
-      
-      <a class="card-container" href="temperatureConverter/">
-        <p>Temperature Converter</p>
-      </a>
-
-      
-      <a class="card-container" href="Weather with API/index.html">
-        <p>Weather with API</p>
-      </a>
-
+      <nav class="grid">
+        <a class="card" href="Calculator/">Calculator</a>
+        <a class="card" href="Countdown/">Countdown</a>
+        <a class="card" href="CurrencyConverter with API/index.html">Currency Converter</a>
+        <a class="card" href="PwGenerator/">Password Generator</a>
+        <a class="card" href="Stopwatch/">Stopwatch</a>
+        <a class="card" href="temperatureConverter/">Temperature Converter</a>
+        <a class="card" href="Weather with API/index.html">Weather</a>
+      </nav>
     </div>
   </body>
 </html>

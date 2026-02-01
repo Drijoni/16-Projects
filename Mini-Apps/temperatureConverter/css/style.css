@@ -1,66 +1,160 @@
-*{
-	margin:0;
-	padding:0;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
-body{
+
+body {
+	font-family: 'Outfit', sans-serif;
 	display: grid;
 	align-items: center;
 	justify-content: center;
-	background-color:lightgrey;
- 	transition: 0.8s;
-	min-height: 100vh;	
+	min-height: 100vh;
+	background-color: #e8e8e8;
+	transition: background-color 0.8s ease;
+	color: #1a1a1a;
+	overflow-x: hidden;
 }
 
-
-.container{
-    padding: 40px;
-	display: flex;
-	flex-direction: column;
-    width: 400px;
-	background-color: #fff;
-   	border-radius: 20px;
-   	box-shadow: 0px 4px 9px black;
+.card {
+	position: relative;
+	width: min(420px, 92vw);
+	padding: 2rem 2.25rem 2.25rem;
+	background: rgba(255, 255, 255, 0.75);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	box-shadow:
+		0 25px 50px -12px rgba(0, 0, 0, 0.15),
+		inset 0 1px 0 rgba(255, 255, 255, 0.8);
+	transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-
-.temperature {
-	padding:12px;
-	border-radius: 20px;
-	border: 1px solid rgba(0,0,0,0.3);
-	outline:none;
-}
-
-
-label {
-	margin:20px 0 6px 12px;
+.card:focus-within {
+	box-shadow:
+		0 25px 50px -12px rgba(0, 0, 0, 0.2),
+		0 0 0 2px rgba(255, 255, 255, 0.4),
+		inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: clamp(1.25rem, 4vw, 1.5rem);
+	font-weight: 700;
 	text-align: center;
-	padding-bottom: 30px;
+	margin-bottom: 0.35rem;
+	color: #1a1a1a;
+	letter-spacing: -0.02em;
 }
 
-.copy{
+.title-icon {
+	font-size: 1.35em;
+	line-height: 1;
+}
+
+.subtitle {
+	font-size: 0.875rem;
+	color: rgba(0, 0, 0, 0.55);
+	text-align: center;
+	margin-bottom: 1.75rem;
+	line-height: 1.4;
+	max-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.input-group {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto auto;
+	grid-template-areas:
+		"label unit"
+		"input input";
+	gap: 0.35rem 0.75rem;
+	margin-bottom: 1.25rem;
+}
+
+.input-group:last-of-type {
+	margin-bottom: 0;
+}
+
+.input-group label {
+	grid-area: label;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.75);
+}
+
+.input-group .unit {
+	grid-area: unit;
+	font-size: 0.8rem;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.45);
+	align-self: center;
+}
+
+.temperature {
+	grid-area: input;
+	width: 100%;
+	padding: 0.9rem 1rem;
+	font-family: 'Outfit', sans-serif;
+	font-size: 1.05rem;
+	font-weight: 500;
+	color: #1a1a1a;
+	background: rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	border-radius: 14px;
+	outline: none;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+	-moz-appearance: textfield;
+}
+
+.temperature::-webkit-outer-spin-button,
+.temperature::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.temperature::placeholder {
+	color: rgba(0, 0, 0, 0.35);
+}
+
+.temperature:hover {
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.temperature:focus {
+	border-color: rgba(0, 0, 0, 0.35);
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.copy {
 	position: absolute;
-	top:90%;
-	left:49%;
-	font-family: sans-serif;
-	font-weight: bold;
+	bottom: 1rem;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.4);
+	pointer-events: none;
 }
 
-
-@media(max-width:600px){
-	.container{
-		padding: 20px;
-		padding-bottom: 50px;
-		width: 300px;
-	}
-	
-	.temperature{
-		padding:7px;
+@media (max-width: 480px) {
+	.card {
+		padding: 1.5rem 1.5rem 1.75rem;
 	}
 
-	.copy{
-		left:40%;
+	.subtitle {
+		font-size: 0.8rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.temperature {
+		padding: 0.8rem 0.9rem;
+		font-size: 1rem;
 	}
 }

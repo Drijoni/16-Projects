@@ -13,8 +13,8 @@
 
     <div class="main-container">
         <div class="search-container">
-            <input type="text" id="input" placeholder="Search a State/City">
-            <span><button id="find" onclick="getWeather()">Find</button></span>
+            <input type="text" id="input" placeholder="Search a State/City" autocomplete="off" aria-label="City or state name">
+            <button type="button" id="find" onclick="getWeather()">Find</button>
         </div>
 
         <div id="result-container" class="result-container">

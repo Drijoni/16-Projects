@@ -42,6 +42,14 @@ body{
     background-color: #5151f7;
     color: white;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ansbtn:hover,#startBtn:hover,#startAgain:hover{
+    background-color: #3d3dd4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 15, 190, 0.4);
 }
 
 /* Buttons for answers */

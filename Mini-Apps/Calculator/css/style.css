@@ -1,49 +1,163 @@
-body{
-	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,9,1) 35%, rgba(0,212,255,1) 100%);
-
-
+/* ----- Variables ----- */
+:root {
+	--bg-body: #0f0f12;
+	--bg-calc: #1a1a1f;
+	--bg-key: #2a2a32;
+	--bg-key-hover: #35353f;
+	--bg-key-active: #3d3d48;
+	--bg-op: #25252d;
+	--bg-op-hover: #2e2e38;
+	--bg-equals: #c45a2e;
+	--bg-equals-hover: #d96a3a;
+	--bg-equals-active: #b34d24;
+	--bg-clear: #3d2a4a;
+	--bg-clear-hover: #4a3560;
+	--text-display: #f0f0f2;
+	--text-key: #e8e8ec;
+	--text-muted: #888896;
+	--border-display: #2a2a32;
+	--radius: 16px;
+	--radius-keys: 12px;
+	--shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+	--font-sans: "DM Sans", system-ui, sans-serif;
+	--font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
-.container{
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 100px black;
-
+/* ----- Base ----- */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
-
-input[name='view']{
-  font-family: 'Orbitron';
-  height: 50px;
-  margin:20px;
-  text-align: center;
-  width: 260px;
-  font-size:30px;
-  border:0;
-  outline: 0;
-  border-bottom: 2px solid black;
-
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--bg-body);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
 }
 
-input[type='button'] {
-  outline: 0;
-  border: 0;
-  font-size:22px; 
-  padding:15px;
-  margin:5px;   
-  width: 60px;
-  color: white;
-  background-color:#2e2a2a;
-  cursor: pointer;
-
+/* ----- Calculator ----- */
+.calculator {
+	background: var(--bg-calc);
+	border-radius: var(--radius);
+	padding: 24px;
+	box-shadow: var(--shadow);
+	border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-input[type='button']:hover {
-	transition: .3s;
-	background-color: grey;
+.calculator__form {
+	margin-bottom: 20px;
+}
+
+.calculator__display {
+	display: block;
+	width: 100%;
+	height: 72px;
+	padding: 16px 20px;
+	font-family: var(--font-mono);
+	font-size: 2rem;
+	font-weight: 500;
+	line-height: 1.2;
+	color: var(--text-display);
+	background: var(--bg-key);
+	border: 1px solid var(--border-display);
+	border-radius: var(--radius-keys);
+	text-align: right;
+	letter-spacing: 0.02em;
+	outline: none;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calculator__display:focus {
+	border-color: rgba(255, 255, 255, 0.12);
+	box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+
+.calculator__display::placeholder {
+	color: var(--text-muted);
+}
+
+/* ----- Keypad grid ----- */
+.calculator__keys {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+}
+
+.key {
+	height: 56px;
+	border: none;
+	border-radius: var(--radius-keys);
+	font-family: var(--font-sans);
+	font-size: 1.25rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.15s, transform 0.1s;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.key:active {
+	transform: scale(0.97);
+}
+
+/* Number keys */
+.key--num {
+	background: var(--bg-key);
+	color: var(--text-key);
+}
+
+.key--num:hover {
+	background: var(--bg-key-hover);
+}
+
+.key--num:active {
+	background: var(--bg-key-active);
+}
+
+/* Operator keys */
+.key--op {
+	background: var(--bg-op);
+	color: var(--text-key);
+}
+
+.key--op:hover {
+	background: var(--bg-op-hover);
+}
+
+/* Clear / Back */
+.key--clear,
+.key--back {
+	background: var(--bg-clear);
+	color: #c9b8e0;
+}
+
+.key--clear:hover,
+.key--back:hover {
+	background: var(--bg-clear-hover);
+}
+
+/* Equals */
+.key--equals {
+	grid-row: span 2;
+	background: var(--bg-equals);
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+.key--equals:hover {
+	background: var(--bg-equals-hover);
+}
+
+.key--equals:active {
+	background: var(--bg-equals-active);
+}
+
+/* Zero spans two columns */
+.key--zero {
+	grid-column: span 2;
 }

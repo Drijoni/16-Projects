@@ -4,8 +4,6 @@ var container = document.getElementById('added-items');
 var taskInfo = document.getElementById('info-tasks');
 var clearBtn = document.getElementById('Clear');
 
-// Logical Variables
-var flagColor = true;
 var taskCounter = 0;
 var completedTasks = 0;
 
@@ -19,20 +17,9 @@ else{
 
 var paragraph = document.createElement('p');
 taskCounter++;
-taskInfo.innerHTML = completedTasks + "/" + taskCounter; /// to overwrite html tag
+taskInfo.textContent = completedTasks + " / " + taskCounter;
 
-/// changing the background color each time
-if(flagColor) {
-	paragraph.style.backgroundColor = "#F1F1F1";
-}
-else {
-	paragraph.style.backgroundColor = "#F9F9F9";
-}
-
-flagColor = !flagColor;
-//
-
-paragraph.innerText =inputi.value;
+paragraph.innerText = inputi.value;
 inputi.value ="";
 paragraph.classList.add('paragraph-style');
 container.appendChild(paragraph);
@@ -40,43 +27,29 @@ container.appendChild(paragraph);
 
 
 var isClicked = true;
-paragraph.addEventListener('click',function(){
-
-
-	if(isClicked) {
-		paragraph.style.textDecoration = 'line-through';
-		paragraph.style.color = "green";
+paragraph.addEventListener('click', function () {
+	if (isClicked) {
+		paragraph.classList.add('completed');
 		completedTasks++;
+	} else {
+		paragraph.classList.remove('completed');
+		completedTasks--;
 	}
-	if(!isClicked) {
-		paragraph.style.textDecoration = 'none';
-		paragraph.style.color = "black";
-		completedTasks -=1;
-	
-	}	
-
 	isClicked = !isClicked;
 
-	taskInfo.innerHTML = completedTasks + "/" + taskCounter; // to update the completed tasks
+	taskInfo.textContent = completedTasks + " / " + taskCounter;
+	taskInfo.classList.toggle('done', taskCounter > 0 && taskCounter === completedTasks);
+});
 
-	if(taskCounter == completedTasks) {
-		taskInfo.style.color = "green";
-	}
+}
 
-	else {
-		taskInfo.style.color = "tomato"
-	}
+});
 
-})
-
-
-clearBtn.addEventListener('click', function(){
+clearBtn.addEventListener('click', function () {
 	container.innerHTML = '';
 	completedTasks = 0;
 	taskCounter = 0;
-	taskInfo.style.color = 'tomato'
-	taskInfo.innerHTML = completedTasks + "/" + taskCounter; // to update the completed tasks... again
-})
-
-}});
+	taskInfo.textContent = '0 / 0';
+	taskInfo.classList.remove('done');
+});
 

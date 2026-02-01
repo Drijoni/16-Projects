@@ -1,121 +1,177 @@
-*{
-	margin:0;
-	padding:0;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-body{
+
+body {
 	display: grid;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	background-color: rgba(0, 0, 0, 0.952);
-	
+	padding: 20px;
 }
 
-.main-container{
+.main-container {
 	text-align: center;
+	width: 100%;
+	max-width: 640px;
 }
 
-.main-title{
-	margin:40px;
+.main-title {
+	margin-bottom: 28px;
 	text-transform: uppercase;
 	letter-spacing: 4px;
 	color: white;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
-.second-container{
-	border:1px solid rgb(209, 199, 199);
+.second-container {
+	border: 1px solid rgb(209, 199, 199);
 	background-color: #e7e7e7;
-	padding: 100px;
+	padding: 40px 32px;
 	text-align: center;
-	box-shadow:0px 0px 3px white;
-	border-radius: 5px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	border-radius: 8px;
 }
 
+.currency-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 16px 20px;
+}
 
-input,select{
-	width: 250px;
-	height: 30px;
-	border:1px solid  #ccc ;	
+.currency-block {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	flex: 1 1 200px;
+	min-width: 0;
+}
+
+.ptext {
+	color: rgb(114, 0, 0);
+	font-family: sans-serif;
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+
+.input-wrap {
+	display: flex;
+	align-items: stretch;
+	gap: 8px;
+	width: 100%;
+	max-width: 280px;
+}
+
+input,
+.currency-select {
+	height: 44px;
+	border: 1px solid #ccc;
 	background-color: #fff;
 	outline: none;
-	font-size: 25px;
-	
+	font-size: 1rem;
+	border-radius: 4px;
 }
 
-input[type='number']{
+input {
+	flex: 1;
+	min-width: 0;
 	color: #ff9000;
 	text-align: left;
-	padding-left: 8px;
+	padding: 0 12px;
+	font-size: 1.1rem;
 }
 
-input[type='number']:focus{
-	border:1px solid yellow;
-
+input::placeholder {
+	color: #aaa;
 }
 
-select{
+input:focus {
+	border-color: yellow;
+	box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.25);
+}
+
+.currency-select {
 	width: 80px;
-	letter-spacing: 3px;
-	
-}
-
-option{
-	text-align: center;
-}
-
-span{
-	color: red;
-	font-size: 50px;
-	font-weight: 700;
-	justify-self: center;
-}
-
-
-
-.ptext{
-	color:rgb(114, 0, 0);
-	font-family:sans-serif;
+	letter-spacing: 2px;
 	font-weight: 600;
-	text-align: left;
-	margin-left: 7%;
+	cursor: pointer;
+	color: #333;
 }
 
-#date{
+.currency-select:focus {
+	border-color: yellow;
+	outline: none;
+}
+
+.equals {
+	color: red;
+	font-size: 2rem;
+	font-weight: 700;
+	align-self: center;
+	line-height: 44px;
+	flex-shrink: 0;
+}
+
+.message {
+	min-height: 1.2em;
+	margin-top: 16px;
+	font-size: 0.9rem;
+	color: rgb(114, 0, 0);
+}
+
+.message.error {
+	color: #c00;
+	font-weight: 600;
+}
+
+.date {
 	color: white;
 	text-align: left;
-	margin:20px;
+	margin-top: 20px;
+	font-size: 0.9rem;
 }
 
-@media (max-width: 480px){
+/* Remove number input spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
 
-	input{
-		width: 200px;
-		
+input[type="number"] {
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
 
+@media (max-width: 520px) {
+	.second-container {
+		padding: 28px 20px;
 	}
-	select{
-		width: 70px;
-		font-size:20px;
+
+	.input-wrap {
+		max-width: 100%;
+	}
+
+	.currency-select {
+		width: 72px;
+		font-size: 0.9rem;
 		letter-spacing: 1px;
 	}
 
-	.second-container{
-		padding: 50px;
+	.equals {
+		font-size: 1.75rem;
 	}
 
-}
-
-/*Remove the counter on input*/
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+	.main-title {
+		font-size: 1.25rem;
+		letter-spacing: 2px;
+	}
 }

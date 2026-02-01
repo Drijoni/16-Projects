@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
-<link rel="stylesheet" type="text/css" href="css/style.css"> 
-     
-   <title>To Do List</title>
+<title>To Do List</title>
 
 </head>
 <body>
 
 
 <div class="main">
+    <h1 class="title">To Do</h1>
     <div class="search-section">
-        <input type="text" placeholder="Write something..." class="input" id="input" value="">
-        <button class="add-btn" id="addbtn"><i class="fas fa-plus"></i></button>      
+        <input type="text" placeholder="Add a task..." class="input" id="input" value="">
+        <button class="add-btn" id="addbtn" type="button" aria-label="Add task"><i class="fas fa-plus"></i></button>
     </div>
 
     <div class="list-section">
@@ -28,9 +29,8 @@
     </div>
 
     <div class="info-section">
-        <p></p><!---->
-        <button id="Clear">Clear All</button>
-        <p id="info-tasks">Tasks</p>
+        <button type="button" id="Clear">Clear All</button>
+        <span id="info-tasks" class="task-count">0 / 0</span>
     </div>
 </div>
 

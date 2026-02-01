@@ -3,86 +3,73 @@ var sec = 0;
 var ms = 0;
 var Interval;
 
-var minutes = document.getElementById("minutes");
-var seconds = document.getElementById("seconds");
-var mseconds = document.getElementById("mseconds");
-
-var time = document.getElementsByClassName("time-container");
+var minutesEl = document.getElementById("minutes");
+var secondsEl = document.getElementById("seconds");
+var msecondsEl = document.getElementById("mseconds");
 var cont = document.getElementById("main-container");
 
-var play = document.getElementById("play");
-
-
-function animation() {
-	cont.style.animation = 'coloranimation 1s infinite';
+function setRunning(running) {
+	if (running) {
+		cont.classList.add("running");
+	} else {
+		cont.classList.remove("running");
+	}
 }
-
-
-function stopanimation() {
-	cont.style.animation = 'coloranimation 0s 0';
-}
-
 
 function start() {
 	ms++;
 	if (ms <= 9) {
-		mseconds.innerHTML = "0" + ms;
-	}
-
-	if (ms > 9) {
-		mseconds.innerHTML = ms;
+		msecondsEl.innerHTML = "0" + ms;
+	} else {
+		msecondsEl.innerHTML = ms;
 	}
 
 	if (ms > 99) {
 		sec++;
-		seconds.innerHTML = sec + " :";
 		ms = 0;
-		mseconds.innerHTML = "0" + ms;
+		msecondsEl.innerHTML = "00";
 	}
 
 	if (sec <= 9) {
-		seconds.innerHTML = "0" + sec + " :";
-	}
-
-	if (sec > 9) {
-		seconds.innerHTML = sec + " :";
+		secondsEl.innerHTML = "0" + sec;
+	} else {
+		secondsEl.innerHTML = sec;
 	}
 
 	if (sec > 59) {
 		mins++;
 		sec = 0;
-		minutes.innerHTML = mins + " :";
+		secondsEl.innerHTML = "00";
 	}
 
 	if (mins <= 9) {
-		minutes.innerHTML = "0" + mins + " :";
-	}
-
-	if (mins > 9) {
-		minutes.innerHTML = mins + " :";
+		minutesEl.innerHTML = "0" + mins;
+	} else {
+		minutesEl.innerHTML = mins;
 	}
 
 	if (mins > 59) {
 		mins = 0;
+		minutesEl.innerHTML = "00";
 	}
-	animation();
+
+	setRunning(true);
 	clearInterval(Interval);
 	Interval = setInterval(start, 9);
 }
 
-
 function stop() {
 	clearInterval(Interval);
-	stopanimation();
+	setRunning(false);
 }
 
 function reset() {
 	mins = 0;
 	sec = 0;
 	ms = 0;
-	minutes.innerHTML = '0' + mins + " :";
-	seconds.innerHTML = '0' + sec + " :";
-	mseconds.innerHTML = '0' + ms;
+	minutesEl.innerHTML = "00";
+	secondsEl.innerHTML = "00";
+	msecondsEl.innerHTML = "00";
 	clearInterval(Interval);
-	stopanimation();
+	setRunning(false);
 }

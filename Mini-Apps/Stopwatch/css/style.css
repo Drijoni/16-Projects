@@ -1,72 +1,193 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	background-color: black;
-	display: grid;
+	font-family: 'Outfit', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
 	justify-content: center;
+	background: linear-gradient(145deg, #0f0f14 0%, #1a1a24 50%, #0d0d12 100%);
+	color: #e4e4e7;
+	overflow-x: hidden;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: 
+		radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 211, 238, 0.12) 0%, transparent 50%),
+		radial-gradient(ellipse 60% 40% at 100% 100%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+	pointer-events: none;
+	z-index: 0;
 }
 
 .main-container {
-	padding: 25px;
-	border: 1px solid white;
-	box-shadow: 0px 0px 10px white;
-	height: 200px;
-	margin-top: 70%;
-	width: 300px;
-	height: 60%;
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 2.5rem;
+}
+
+.time-card {
+	background: rgba(24, 24, 30, 0.85);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	border-radius: 1.5rem;
+	padding: 2rem 2.5rem;
+	box-shadow: 
+		0 25px 50px -12px rgba(0, 0, 0, 0.5),
+		inset 0 1px 0 rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(12px);
+	transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.main-container.running .time-card {
+	border-color: rgba(34, 211, 238, 0.25);
+	box-shadow: 
+		0 25px 50px -12px rgba(0, 0, 0, 0.5),
+		0 0 40px -10px rgba(34, 211, 238, 0.35),
+		inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .time-container {
-	border: 10px solid white;
-	border-radius: 20%;
 	text-align: center;
-	margin-top: auto;
-	width: 270px;
 }
 
-@keyframes coloranimation {
-	0% {
-		box-shadow: 0px 0px 25px white;
-	}
-
-	100% {
-		box-shadow: 0px 0px 50px red;
-	}
+.digits {
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 0.15em;
+	font-family: 'JetBrains Mono', monospace;
+	font-weight: 600;
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	letter-spacing: 0.02em;
+	color: #fafafa;
+	line-height: 1.2;
 }
 
-
-#num-cont {
-	font-family: sans-serif;
-	padding: 50px;
-	color: white;
-	font-size: 30px;
+.numbers {
+	display: inline-block;
+	min-width: 1.2em;
+	text-align: center;
 }
 
-.buttons {
-	cursor: pointer;
-	height: 40px;
-	width: auto;
-	border: 2px solid;
-	background-color: silver;
-	border-radius: 10%;
-	font-size: 27px;
-	margin-left: 5px;
-	margin: 10px;
-	outline: 0;
-	font-family: sans-serif;
+.numbers.sub {
+	font-size: 0.7em;
+	font-weight: 400;
+	color: rgba(255, 255, 255, 0.7);
 }
 
-#play, #reset, #stop {
-	color: white;
+.separator {
+	color: rgba(34, 211, 238, 0.7);
+	font-weight: 400;
+	animation: blink 1s step-end infinite;
 }
 
-.buttons:hover {
-	transition: .3s;
-	background-color: black;
+.main-container.running .separator {
+	animation: blink 0.6s step-end infinite;
 }
 
+@keyframes blink {
+	50% { opacity: 0.35; }
+}
+
+.labels {
+	font-size: 0.75rem;
+	letter-spacing: 0.35em;
+	color: rgba(255, 255, 255, 0.4);
+	margin-top: 0.5rem;
+	font-weight: 400;
+}
 
 .btn-container {
-	margin-top: 35px;
-	display: grid;
-	width: 290px;
-	text-align: center;
+	display: flex;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.85rem 1.5rem;
+	font-family: 'Outfit', sans-serif;
+	font-size: 0.95rem;
+	font-weight: 600;
+	border: none;
+	border-radius: 0.75rem;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+	outline: none;
+}
+
+.btn:active {
+	transform: scale(0.97);
+}
+
+.btn-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.btn-play {
+	background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+	color: #0f172a;
+	box-shadow: 0 4px 14px rgba(34, 211, 238, 0.4);
+}
+
+.btn-play:hover {
+	background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 100%);
+	box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+}
+
+.btn-stop {
+	background: rgba(255, 255, 255, 0.08);
+	color: #e4e4e7;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-stop:hover {
+	background: rgba(248, 113, 113, 0.2);
+	border-color: rgba(248, 113, 113, 0.4);
+	color: #fca5a5;
+}
+
+.btn-reset {
+	background: rgba(255, 255, 255, 0.06);
+	color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.btn-reset:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: rgba(255, 255, 255, 0.15);
+	color: #fff;
+}
+
+@media (max-width: 380px) {
+	.main-container {
+		padding: 1.5rem;
+	}
+	.time-card {
+		padding: 1.5rem 1.75rem;
+	}
+	.digits {
+		font-size: 2rem;
+	}
+	.btn span {
+		display: none;
+	}
+	.btn {
+		padding: 0.85rem 1rem;
+	}
 }

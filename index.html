@@ -4,82 +4,179 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>16-Projects</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      :root {
+        --bg: #0c0f17;
+        --bg-card: rgba(255, 255, 255, 0.03);
+        --bg-card-hover: rgba(255, 255, 255, 0.06);
+        --border: rgba(255, 255, 255, 0.08);
+        --border-hover: rgba(16, 185, 129, 0.4);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --accent: #10b981;
+        --accent-soft: rgba(16, 185, 129, 0.15);
+        --radius: 16px;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
 
       body {
-        background-color: gray;
-        color: white;
-        font-family: "Poppins";
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.12), transparent),
+          radial-gradient(ellipse 60% 40% at 100% 0%, rgba(99, 102, 241, 0.08), transparent);
+        color: var(--text);
+        font-family: "Outfit", sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+
+      .hero {
         text-align: center;
-        padding: 50px;
+        margin-bottom: 3.5rem;
       }
 
-      body img {
-        height: 150px;
+      .hero .badge {
+        display: inline-block;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-soft);
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        margin-bottom: 1rem;
       }
 
-      a {
+      .hero h1 {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        color: var(--text-muted);
+        margin: 0;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero a {
+        color: var(--accent);
         text-decoration: none;
-        transition: .4s;
-    }
-
-      a:hover {
-        opacity: .6;
-        transform: scale(0.9);
+        font-weight: 500;
       }
 
-      .categories-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap:40px;
-        margin-top: 140px;
+      .hero a:hover {
+        text-decoration: underline;
       }
 
-      .card-container {
+      .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        justify-items: center;
+      }
+
+      .card {
         display: flex;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
         text-align: center;
-        width: 200px;
-      }
-      .card-container p {
+        width: 100%;
+        max-width: 280px;
+        padding: 2rem 1.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
         text-decoration: none;
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #000;
-        font-weight: bold;
-        border-bottom:2px solid black;
+        color: inherit;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        box-shadow: var(--shadow);
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--border-hover);
+        background: var(--bg-card-hover);
+      }
+
+      .card:active {
+        transform: translateY(-2px);
+      }
+
+      .card img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-bottom: 1.25rem;
+        opacity: 0.95;
+      }
+
+      .card img.grayscale {
+        filter: grayscale(100%);
+      }
+
+      .card:hover img.grayscale {
+        filter: grayscale(0%);
+      }
+
+      .card span {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: -0.01em;
+      }
+
+      .card:hover span {
+        color: var(--accent);
       }
     </style>
   </head>
   <body>
-    <h2>
-      I recommend this to beginners who are getting started to learn web
-      development. Developing these projects will teach you the basics of web
-      development when it comes to layout, organizing code and design.
-      For source code check <a style="color:orange" href="https://github.com/drijoni/16-Projects">github repo</a> Enjoy.
-    </h2>
-    <h3>HTML-CSS-JavaScript only.</h3>
-    <h5>Click a category to see the projects.</h5>
-    <div class="categories-container">
-      <a class="card-container" href="/Fun/">
-        <img src="fun.png" alt="" />
-        <p>Fun</p></a
-      >
+    <div class="container">
+      <header class="hero">
+        <span class="badge">HTML · CSS · JavaScript</span>
+        <h1>16 Projects</h1>
+        <p>
+          A collection for beginners learning web development: layout, structure, and design.
+          Source code on <a href="https://github.com/drijoni/16-Projects">GitHub</a>.
+        </p>
+      </header>
 
-      <a class="card-container" href="/Landing-pages/">
-        <img src="pages.png" alt="" style="filter: grayscale(100)" />
-        <p>Landing Pages</p>
-      </a>
-
-      <a class="card-container" href="/Mini-Apps/">
-        <img src="apps.png" alt="" style="filter: grayscale(100)" />
-        <p style="margin-left: 40px;">Mini-Apps</p>
-      </a>
+      <nav class="categories">
+        <a class="card" href="Fun/">
+          <img src="fun.png" alt="" style="filter:invert(1)"/>
+          <span>Fun</span>
+        </a>
+        <a class="card" href="Landing-pages/">
+          <img src="pages.png" alt="" class="grayscale" />
+          <span>Landing Pages</span>
+        </a>
+        <a class="card" href="Mini-Apps/">
+          <img src="apps.png" alt="" class="grayscale" />
+          <span>Mini-Apps</span>
+        </a>
+      </nav>
     </div>
   </body>
 </html>

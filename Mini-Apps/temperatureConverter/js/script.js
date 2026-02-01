@@ -3,10 +3,10 @@ var cels = document.getElementById('celsius');
 var fahr = document.getElementById('fahr');
 
 
-function kelvinCalc(kelvin) {
-	cels.value = (kelvin - 273.1);
-	fahr.value =(kelvin*(9/5) - 459.67);
-    tbackground(kelvin - 273.1);
+function kelvinCalc(k) {
+	cels.value = (k - 273.15);
+	fahr.value = (k * (9/5) - 459.67);
+	tbackground(k - 273.15);
 }
 
 function celsCalc(celsius) {
@@ -15,10 +15,10 @@ function celsCalc(celsius) {
 	tbackground(celsius);
 }
 
-function fahrCalc(fahr) {
-	kelvin.value = ((fahr + 459.67) * (5/9));
-	celsius.value = ((fahr - 32)*(5/9));
-tbackground((fahr-32)*(5/9));
+function fahrCalc(fahrVal) {
+	kelvin.value = ((fahrVal + 459.67) * (5/9));
+	cels.value = ((fahrVal - 32) * (5/9));
+	tbackground((fahrVal - 32) * (5/9));
 }
 
 

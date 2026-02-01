@@ -1,123 +1,330 @@
- * {
-     font-family: "Rimouski";
- }
+* {
+    font-family: "Rimouski", sans-serif;
+    box-sizing: border-box;
+}
 
- body {
-     background-color: #293251;
-     text-align: center;
- }
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
 
- .main-container {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding-top: 50px;
- }
+body {
+    background-color: #293251;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0 12px;
+}
 
- .search-container {
-     text-align: left;
-     margin-bottom: 20px;
- }
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0 40px;
+    max-width: 480px;
+    margin: 0 auto;
+}
 
- #input {
-     padding: 5px;
-     width: 270px;
-     height: 30px;
-     font-size: 20px;
-     outline: none;
- }
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
 
- #find {
-     height: 30px;
-     font-size: 20px;
-     background-color: rgb(206, 206, 7);
-     color: white;
-     outline: none;
-     border: none;
-     cursor: pointer;
- }
+#input {
+    padding: 10px 14px;
+    width: 100%;
+    max-width: 280px;
+    min-width: 0;
+    height: 44px;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid #2c3852;
+    border-radius: 4px;
+    background: #fff;
+    color: #1a1a1a;
+}
 
- #find:hover {
-     transition: .5s;
-     background-color: rgb(255, 230, 0);
- }
+#input::placeholder {
+    color: #6b7280;
+}
 
- .result-container {
-     background-color: white;
-     width: 320px;
-     padding-bottom: 50px;
-     border-radius: 15px;
-     text-align: center;
-     box-shadow: 0px 0px 10px black;
- }
+#input:focus {
+    border-color: #4b5563;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+}
 
- .weather-container {
-     background-color: #e8edf3;
-     padding: 10px;
- }
+#find {
+    height: 44px;
+    min-height: 44px;
+    padding: 0 22px;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #1e293b;
+    color: #fef3c7;
+    outline: none;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
 
- .tempAndWind {
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
- }
+#find:hover {
+    background-color: #334155;
+    border-color: #475569;
+}
 
- .minMaxDiv {
-     text-align: left;
- }
+#find:active {
+    transform: scale(0.98);
+}
 
- .title {
-     font-size: 25px;
-     font-weight: 600;
-     padding-top: 15px;
- }
+/* Card: clear header + body */
+.result-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #1e293b;
+    overflow: hidden;
+}
 
- .icon {
-     width: 150px;
-     height: 150px;
- }
+.result-container .title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #1e293b;
+    margin: 0;
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+}
 
- #windIcon {
-     width: 60px;
-     height: 60px;
- }
+#notification {
+    border-radius: 0;
+}
 
- .temperature {
-     margin: 0;
-     font-size: 60px;
-     font-weight: 700;
-     cursor: pointer;
- }
+.notification {
+    display: none;
+    padding: 10px 16px;
+    margin: 0;
+    color: #fff;
+    background-color: #991b1b;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #7f1d1d;
+}
 
- .temperature-description {
-     font-size: 16px;
- }
+.weather-container {
+    background-color: #f1f5f9;
+    padding: 20px 16px 24px;
+    border-top: none;
+}
 
- .location {
-     font-size: 20px;
- }
+.icon {
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 4px;
+}
 
- #tip {
-     cursor: pointer;
-     visibility: hidden;
-     color: grey;
- }
+.temperature {
+    margin: 0;
+    font-size: clamp(2.5rem, 12vw, 3.75rem);
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    color: #0f172a;
+    line-height: 1.1;
+}
 
- .notification {
-     display: none;
-     padding: 10px;
-     color: white;
-     background-color: red;
- }
+.temperature:active {
+    opacity: 0.9;
+}
 
- .tipAndCopy {
-     margin-top: 60px;
- }
+.temperature-description {
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    margin: 6px 0 16px;
+    color: #475569;
+    text-transform: capitalize;
+}
 
+.tempAndWind {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+    max-width: 260px;
+    margin: 0 auto;
+    padding: 14px 0;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
 
- @media(max-width:620px) {
-     #input {
-         width: 240px;
-     }
- }
+.minMaxDiv,
+.wind {
+    text-align: center;
+}
+
+.minMaxDiv p,
+.wind p {
+    margin: 2px 0;
+    font-size: 0.9rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+.wind {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+#windicon,
+.wind img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.85;
+}
+
+.location {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    margin: 14px 0 0;
+    color: #475569;
+    font-weight: 500;
+}
+
+#tip {
+    cursor: pointer;
+    visibility: hidden;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    padding: 0 12px;
+}
+
+.tipAndCopy {
+    margin-top: 28px;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.tipAndCopy h4 {
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Tablet and up */
+@media (min-width: 480px) {
+    body {
+        padding: 0 20px;
+    }
+
+    .main-container {
+        padding-top: 40px;
+    }
+
+    .search-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 24px;
+    }
+
+    #input {
+        max-width: 280px;
+        margin: 0;
+    }
+
+    #find {
+        margin-top: 0;
+    }
+
+    .result-container {
+        max-width: 360px;
+    }
+
+    .weather-container {
+        padding: 24px 20px 28px;
+    }
+
+    .icon {
+        width: 150px;
+        height: 150px;
+    }
+
+    #windicon,
+    .wind img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tempAndWind {
+        max-width: 280px;
+        padding: 16px 0;
+    }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+    html {
+        font-size: 15px;
+    }
+
+    .main-container {
+        padding: 16px 0 24px;
+    }
+
+    #input {
+        max-width: 100%;
+    }
+
+    .result-container {
+        border-radius: 4px;
+    }
+
+    .weather-container {
+        padding: 16px 12px 20px;
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .temperature {
+        font-size: 2.25rem;
+    }
+
+    .tempAndWind {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .wind {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: center;
+        gap: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #find:hover {
+        transition: none;
+    }
+
+    #find:active {
+        transform: none;
+    }
+}

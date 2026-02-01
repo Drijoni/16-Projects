@@ -1,73 +1,87 @@
-var select = document.querySelectorAll('select');
-var input = document.querySelectorAll('input');
-//var API = "https://api.exchangeratesapi.io/latest";
-var API = "http://data.fixer.io/api/latest?access_key=6dad5bff24835e236f2b09685ec1a253&format=1";
-var tag = '';
+// Frankfurter API - free, no API key, no rate limits
+// https://www.frankfurter.dev/docs/
+const API_LATEST = "https://api.frankfurter.dev/v1/latest";
+const API_CURRENCIES = "https://api.frankfurter.dev/v1/currencies";
 
-/*
-We use async function instead of fetch and .this, it's much easier
+const selectEls = document.querySelectorAll("select");
+const inputEls = document.querySelectorAll("input");
+const dateEl = document.getElementById("date");
+const messageEl = document.getElementById("message");
+let rates = {};
+const MAX_DIGITS = 12;
 
-*/
-
-
-async function currency() {
-
-const res = await fetch(API);
-const data =await res.json();
-
-const arrayKeys = Object.keys(data.rates);
-const rates = data.rates;
-
-
-arrayKeys.map(function(item) {
-return tag +=`<option value=${item}>${item}</option>`;
-});
-for(let i = 0; i<select.length;i++){
-    select[i].innerHTML = tag;
+async function loadCurrencies() {
+  try {
+    const res = await fetch(API_CURRENCIES);
+    if (!res.ok) throw new Error("Could not load currencies");
+    const currencies = await res.json();
+    return Object.keys(currencies).sort();
+  } catch (err) {
+    console.error(err);
+    return ["EUR", "USD", "GBP", "JPY", "CHF"];
+  }
 }
 
-function convert(i,j){
-input[i].value = input[j].value*rates[select[i].value] / rates[select[j].value];
+async function loadRates() {
+  try {
+    const res = await fetch(API_LATEST);
+    if (!res.ok) throw new Error("Could not load exchange rates");
+    const data = await res.json();
+    // Frankfurter returns rates relative to base; add base with rate 1 for conversion
+    rates = { [data.base]: 1, ...data.rates };
+    if (dateEl) dateEl.textContent = "Rates as of: " + data.date;
+    if (messageEl) {
+      messageEl.textContent = "";
+      messageEl.className = "message";
+    }
+    return true;
+  } catch (err) {
+    console.error(err);
+    if (messageEl) {
+      messageEl.textContent = "Exchange rates unavailable. Check your connection.";
+      messageEl.className = "message error";
+    }
+    if (dateEl) dateEl.textContent = "";
+    return false;
+  }
 }
 
-input[0].addEventListener('keyup',function(){convert(1,0)});
-input[1].addEventListener('keyup',function(){convert(0,1)});
-
-select[0].addEventListener('change',function(){convert(1,0)});
-select[1].addEventListener('change',function(){convert(1,0)});
-console.log(data);
-
+function buildOptions(codes) {
+  return codes.map((code) => `<option value="${code}">${code}</option>`).join("");
 }
 
-
-
-var date = new Date();
-
-
-document.getElementById('date').innerHTML = "Today: " + date;
-
-
-
-function limit(i){
-let limit = 8;
-if(input[0].value.length>=limit){
-input[0].value = input[0].value.slice(0,limit);
-
+function convert(fromIndex, toIndex) {
+  const fromSelect = selectEls[fromIndex];
+  const toSelect = selectEls[toIndex];
+  const fromCode = fromSelect.value;
+  const toCode = toSelect.value;
+  const amount = parseFloat(inputEls[fromIndex].value) || 0;
+  if (!rates[fromCode] || !rates[toCode]) return;
+  const result = (amount * rates[toCode]) / rates[fromCode];
+  inputEls[toIndex].value = result === 0 ? "" : result.toFixed(4).replace(/\.?0+$/, "");
 }
 
-
+function limitInput() {
+  const val = inputEls[0].value;
+  if (val.length > MAX_DIGITS) inputEls[0].value = val.slice(0, MAX_DIGITS);
 }
 
+async function init() {
+  const codes = await loadCurrencies();
+  const options = buildOptions(codes);
+  selectEls.forEach((sel) => (sel.innerHTML = options));
 
+  const loaded = await loadRates();
+  if (!loaded) return;
 
+  inputEls[0].addEventListener("input", () => {
+    limitInput();
+    convert(0, 1);
+  });
+  inputEls[0].addEventListener("keyup", () => convert(0, 1));
 
+  selectEls[0].addEventListener("change", () => convert(0, 1));
+  selectEls[1].addEventListener("change", () => convert(0, 1));
+}
 
-
-
-
-currency();
-
-
-
-
-
+init();
