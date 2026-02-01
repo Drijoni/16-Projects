@@ -1,37 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="css/style.css">	
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-<title>Canvas</title>
-
-</head>
-<body>
-
-<div class="main-container">
-    <h1 class="title">Draw something</h1>
-    <div class="canvas-wrap">
+    <title>Canvas</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="title">Draw something</h1>
+      <div class="canvas-wrap">
         <canvas id="draw" width="600" height="600"></canvas>
-    </div>
-    <div class="toolbox">
+      </div>
+      <div class="toolbox">
         <div class="tool-group">
-            <span class="tool-label">Size</span>
-            <button type="button" class="tool-btn" id="minus" onclick="calculate('-')" title="Thinner">−</button>
-            <input type="number" value="1" id="widthInput" min="1" max="50" readonly aria-label="Brush size">
-            <button type="button" class="tool-btn" id="plus" onclick="calculate('+')" title="Thicker">+</button>
+          <span class="tool-label">Size</span>
+          <button
+            type="button"
+            class="tool-btn"
+            id="minus"
+            onclick="calculate('-')"
+            title="Thinner"
+          >
+            −
+          </button>
+          <input
+            type="number"
+            value="1"
+            id="widthInput"
+            min="1"
+            max="50"
+            readonly
+            aria-label="Brush size"
+          />
+          <button
+            type="button"
+            class="tool-btn"
+            id="plus"
+            onclick="calculate('+')"
+            title="Thicker"
+          >
+            +
+          </button>
         </div>
         <div class="tool-group">
-            <span class="tool-label">Color</span>
-            <input type="color" id="colorPicker" value="#2c2c2c" onchange="color(this.value)" title="Pick color">
+          <span class="tool-label">Color</span>
+          <input
+            type="color"
+            id="colorPicker"
+            value="#2c2c2c"
+            onchange="color(this.value)"
+            title="Pick color"
+          />
         </div>
         <div class="tool-group actions">
-            <button type="button" class="tool-btn action-btn" id="clearbtn" onclick="clearAll()">Clear</button>
-            <button type="button" class="tool-btn action-btn save-btn" onclick="saveAsPNG()">Save PNG</button>
-            <button type="button" class="tool-btn action-btn save-btn save-jpg" onclick="saveAsJPG()">Save JPG</button>
+          <button
+            type="button"
+            class="tool-btn action-btn"
+            id="clearbtn"
+            onclick="clearAll()"
+          >
+            Clear
+          </button>
+          <button
+            type="button"
+            class="tool-btn action-btn save-btn"
+            onclick="saveAsPNG()"
+          >
+            Save PNG
+          </button>
+          <button
+            type="button"
+            class="tool-btn action-btn save-btn save-jpg"
+            onclick="saveAsJPG()"
+          >
+            Save JPG
+          </button>
         </div>
+      </div>
     </div>
-</div>
 
-<script type="text/javascript" src="js/main.js"></script>
-</body>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
